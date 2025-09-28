@@ -1,7 +1,7 @@
 import 'dotenv/config';
 
 export const config = {
-  port: Number(process.env.PORT || 3001),
+  port: Number(process.env.PORT || 3000),
   cacheTtlMs: Number(process.env.CACHE_TTL_MS || 5 * 60 * 1000),
   queueIntervalMs: Number(process.env.QUEUE_INTERVAL_MS || 1000),
   queueCap: Number(process.env.QUEUE_CAP || 2),

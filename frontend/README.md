@@ -1,36 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# InstaAnalytics Frontend
 
-## Getting Started
+A modern, responsive Next.js application for analyzing Instagram profiles and their content performance.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 🔍 **Profile Search**: Search and analyze any public Instagram profile
+- 📊 **Analytics Dashboard**: Comprehensive profile statistics and metrics
+- 📱 **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- ⚡ **Real-time Data**: Live Instagram data fetching
+- 📈 **Engagement Charts**: Visual representation of post performance
+- 🎨 **Modern UI**: Beautiful, intuitive interface with smooth animations
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Icons**: Lucide React
+- **Components**: Custom reusable components
+- **API**: RESTful API integration
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx              # Root layout
+│   ├── globals.css             # Global styles
+│   ├── page.tsx                # Landing page (username input)
+│   └── influencer/
+│       └── [handle]/
+│           ├── page.tsx        # Dashboard
+│           ├── loading.tsx     # Loading skeleton
+│           ├── error.tsx       # Error boundary
+│           └── not-found.tsx   # 404 page
+├── components/
+│   ├── ProfileHeader.tsx       # Profile information header
+│   ├── StatCard.tsx           # Statistics display card
+│   ├── PostsGrid.tsx          # Posts grid layout
+│   ├── EngagementChart.client.tsx # Client-side engagement chart
+│   └── EmptyState.tsx         # Empty state component
+├── lib/
+│   ├── api.ts                 # API client functions
+│   └── utils.ts               # Utility functions
+└── types/
+    └── index.ts               # TypeScript type definitions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key Components
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Landing Page (`/`)
+- Hero section with Instagram username input
+- Feature highlights
+- Example profiles to try
+- Modern gradient design
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Dashboard (`/influencer/[handle]`)
+- Profile header with stats
+- Engagement chart visualization
+- Posts grid with interaction metrics
+- Export and sharing functionality
 
-## Learn More
+### Error Handling
+- Comprehensive error boundaries
+- User-friendly error messages
+- Graceful fallbacks for network issues
 
-To learn more about Next.js, take a look at the following resources:
+## API Integration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The frontend communicates with the backend through:
+- `/profile/:handle` - Get profile information
+- `/posts/:handle` - Get recent posts data
+- Error handling with retries and proper status codes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Development
 
-## Deploy on Vercel
+```bash
+# Install dependencies
+npm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Start development server
+npm run dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+## Environment Variables
+
+Create a `.env.local` file:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
+## Features Implemented
+
+✅ **Profile Analytics**
+- Follower, following, and post counts
+- Profile picture and basic information
+- Real-time data fetching
+
+✅ **Post Analysis**
+- Recent posts grid (up to 50 posts)
+- Likes and comments metrics
+- Media type indicators (image/video/carousel)
+- Post timestamps and captions
+
+✅ **Engagement Visualization**
+- Interactive engagement chart
+- Average engagement calculation
+- Visual performance indicators
+
+✅ **User Experience**
+- Loading skeletons
+- Error handling
+- Responsive design
+- Smooth animations
+
+✅ **Performance**
+- Optimized images with Next.js Image
+- Component-based architecture
+- Efficient data fetching
+- TypeScript for type safety
+
+## Browser Support
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+## License
+
+This project is for educational purposes only.
